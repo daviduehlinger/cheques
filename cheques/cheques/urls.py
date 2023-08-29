@@ -16,10 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from cheques_app.views import cargar_cheque
+from cheques_app.views import cargar_cheque, confirmacion_cheque
+from consultas_app.views import consultar_cheques
+from cheques.views import welcome
 
 urlpatterns = [
+    path('', welcome, name='welcome'),
     path('admin/', admin.site.urls),
     path('cargar_cheque/', cargar_cheque, name='cargar_cheque'),
-    # Agrega aquí la definición de la URL de éxito si lo deseas
+    #path('cheque_cargado', cheque_cargado, name='cheque_cargado'),
+    path('consultar_cheques/', consultar_cheques, name='consultar_cheques'),
+    path('confirmacion/', confirmacion_cheque, name='confirmacion_cheque'),
 ]

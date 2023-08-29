@@ -21,8 +21,12 @@ def cargar_cheque(request):
             monto=monto
         )
 
-        return redirect('cheque_cargado')  # Puedes definir una URL de éxito
+        return redirect('confirmacion_cheque')
 
     bancos = Banco.objects.all()
     clientes = Cliente.objects.all()
     return render(request, 'cheques_form.html', {'bancos': bancos, 'clientes': clientes})
+
+
+def confirmacion_cheque(request):
+    return render(request, 'confirmation.html')
