@@ -1,3 +1,5 @@
-from django.db import models
+from cheques_app.models import Cheque as ChequeOriginal
 
-# Create your models here.
+class Cheque(ChequeOriginal):
+    class Meta:
+        proxy = True
